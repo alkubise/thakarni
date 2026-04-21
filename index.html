@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ذكرني | رفيقك اليومي للذكر والقرآن والمواقيت</title>
+  <meta name="description" content="صفحة هبوط احترافية لتطبيق ذكرني بتصميم فاخر وروحاني، مع أقسام تحميل للأندرويد والآيفون ومزايا التطبيق وتجربة بصرية ملهمة." />
+  <style>
+    :root{
+      --bg:#060b16;
+      --bg2:#0b1324;
+      --card:rgba(14,20,34,.66);
+      --card-2:rgba(18,26,44,.84);
+      --line:rgba(241,198,74,.28);
+      --gold:#f0c758;
+      --gold-2:#c9961d;
+      --text:#f7f3e8;
+      --muted:#cfc7b6;
+      --muted-2:#9d988b;
+      --shadow:0 18px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+      --radius:28px;
+      --radius-sm:20px;
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 80% 14%, rgba(255,216,113,.14), transparent 16%),
+        radial-gradient(circle at 12% 18%, rgba(255,205,95,.10), transparent 20%),
+        radial-gradient(circle at 50% 75%, rgba(255,200,80,.08), transparent 18%),
+        linear-gradient(180deg, #04070f 0%, #081222 40%, #07101f 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      inset:auto;
+      pointer-events:none;
+      z-index:-3;
+      filter:blur(1px);
+    }
+
+    body::before{
+      top:62px; right:6%;
+      width:210px; height:210px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 40%, rgba(255,227,147,.92) 0 22%, transparent 23%),
+        radial-gradient(circle at 56% 50%, rgba(8,15,31,1) 0 28%, transparent 29%);
+      opacity:.9;
+      box-shadow:0 0 60px rgba(238,193,81,.2);
+    }
+
+    body::after{
+      left:-40px; bottom:-70px;
+      width:340px; height:340px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,198,83,.08), transparent 70%);
+    }
+
+    .stars{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    .star{
+      position:absolute;
+      width:2px;
+      height:2px;
+      background:#fff4c6;
+      border-radius:50%;
+      opacity:.85;
+      box-shadow:0 0 9px rgba(255,225,145,.9);
+      animation:twinkle var(--d,8s) linear infinite;
+    }
+    .meteor{
+      position:absolute;
+      width:140px;
+      height:1.5px;
+      background:linear-gradient(90deg, rgba(255,226,155,0), rgba(255,213,92,.95));
+      transform:rotate(-25deg);
+      opacity:.6;
+      filter:drop-shadow(0 0 6px rgba(255,210,88,.5));
+      animation:fly var(--md,12s) linear infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{transform:scale(.75); opacity:.35}
+      30%{transform:scale(1.8); opacity:1}
+      55%{transform:scale(.9); opacity:.65}
+    }
+
+    @keyframes fly{
+      0%{transform:translateX(-180px) translateY(0) rotate(-25deg); opacity:0}
+      8%{opacity:.7}
+      28%{opacity:0}
+      100%{transform:translateX(130vw) translateY(22vh) rotate(-25deg); opacity:0}
+    }
+
+    .container{width:min(var(--max), calc(100% - 32px)); margin-inline:auto}
+    .section{padding:26px 0}
+    .shell{
+      position:relative;
+      border:1px solid rgba(255,222,139,.12);
+      background:linear-gradient(180deg, rgba(7,12,24,.78), rgba(8,14,28,.66));
+      backdrop-filter:blur(18px);
+      box-shadow:var(--shadow);
+      border-radius:calc(var(--radius) + 8px);
+    }
+
+    header.nav-wrap{
+      position:sticky;
+      top:16px;
+      z-index:50;
+      padding:16px 18px;
+      margin-top:16px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:.5px;
+      color:var(--gold);
+      text-shadow:0 0 18px rgba(240,199,88,.22);
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:12px 22px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:#eee6d3;
+      text-decoration:none;
+      font-weight:700;
+      opacity:.9;
+      transition:.25s ease;
+    }
+    .menu a:hover{color:var(--gold)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      border-radius:999px;
+      padding:0 26px;
+      font-weight:800;
+      text-decoration:none;
+      border:1px solid rgba(248,214,111,.28);
+      transition:.3s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.08);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 16px 34px rgba(0,0,0,.28)}
+    .btn.gold{
+      background:linear-gradient(135deg, #f0c758, #c18e1e);
+      color:#1f1606;
+    }
+    .btn.ghost{
+      background:rgba(8,12,23,.72);
+      color:#fff;
+    }
+    .btn.block{width:100%}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+      gap:28px;
+      align-items:center;
+      padding:28px;
+      min-height:700px;
+      overflow:hidden;
+    }
+
+    .hero-copy{
+      position:relative;
+      z-index:2;
+      padding:8px 6px 8px 0;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,214,109,.18);
+      color:#f0cd76;
+      background:rgba(255,206,97,.06);
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(2.4rem, 5vw, 4.9rem);
+      line-height:1.12;
+      margin:.1em 0 .22em;
+      letter-spacing:-.8px;
+      text-wrap:balance;
+    }
+
+    .hero-copy p{
+      color:var(--muted);
+      font-size:1.15rem;
+      line-height:1.95;
+      max-width:620px;
+      margin:0 0 24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .compat{
+      color:var(--muted-2);
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size:.98rem;
+    }
+
+    .hero-art{
+      position:relative;
+      min-height:620px;
+      isolation:isolate;
+    }
+
+    .aura{
+      position:absolute;
+      inset:18% 8% 18% 8%;
+      border-radius:50%;
+      background:
+        radial-gradient(circle, rgba(255,214,94,.34), rgba(255,214,94,.12) 24%, rgba(255,214,94,.04) 46%, transparent 62%);
+      filter:blur(16px);
+      z-index:0;
+      animation:pulse 7s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:scale(.96); opacity:.7}
+      50%{transform:scale(1.04); opacity:1}
+    }
+
+    .phone-stack{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      perspective:1200px;
+      z-index:1;
+    }
+
+    .phone{
+      position:absolute;
+      width:258px;
+      height:525px;
+      border-radius:38px;
+      background:
+        linear-gradient(180deg, rgba(9,12,20,.9), rgba(8,12,19,.95)),
+        radial-gradient(circle at 70% 15%, rgba(247,211,112,.12), transparent 22%);
+      border:1px solid rgba(255,223,149,.14);
+      box-shadow:
+        0 40px 80px rgba(0,0,0,.45),
+        0 0 0 2px rgba(244,206,95,.08),
+        inset 0 0 0 1px rgba(255,255,255,.03);
+      overflow:hidden;
+      transform-style:preserve-3d;
+    }
+
+    .phone::before{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border-radius:28px;
+      border:1px solid rgba(255,219,126,.09);
+      pointer-events:none;
+    }
+
+    .phone .status{
+      position:absolute;
+      top:14px;
+      left:50%;
+      transform:translateX(-50%);
+      width:92px;
+      height:20px;
+      border-radius:999px;
+      background:#04060d;
+      opacity:.95;
+      z-index:3;
+    }
+
+    .phone .screen{
+      position:absolute;
+      inset:0;
+      padding:34px 18px 16px;
+      background:
+        radial-gradient(circle at 75% 18%, rgba(247,209,99,.18), transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(255,222,128,.05), transparent 18%),
+        linear-gradient(180deg, rgba(7,12,24,.65), rgba(9,13,21,.85));
+    }
+
+    .phone .screen::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 62%, rgba(247,205,90,.18), transparent 18%),
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.03), transparent 20%);
+      pointer-events:none;
+    }
+
+    .phone.small-left{transform:translate(-180px, 25px) rotateY(24deg) rotateZ(-7deg) scale(.92)}
+    .phone.center{transform:translate(0, 0) rotateY(0deg) scale(1.05); z-index:3}
+    .phone.right{transform:translate(180px, 20px) rotateY(-20deg) rotateZ(6deg) scale(.94); z-index:2}
+
+    .mini-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+    .mini-title{font-size:1.3rem; font-weight:900}
+    .mini-ico{
+      width:34px; height:34px; border-radius:50%;
+      border:1px solid rgba(255,214,108,.26);
+      display:grid; place-items:center;
+      color:var(--gold);
+      background:rgba(255,211,100,.08);
+      box-shadow:inset 0 0 18px rgba(255,213,108,.05);
+    }
+
+    .orb{
+      width:156px; height:156px; border-radius:50%;
+      margin:14px auto 18px;
+      display:grid; place-items:center;
+      text-align:center;
+      color:#fff7df;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255,220,119,.18), rgba(17,22,36,.88) 55%),
+        linear-gradient(180deg, rgba(11,14,22,.84), rgba(6,11,18,.95));
+      border:1px solid rgba(255,212,106,.3);
+      box-shadow:
+        0 0 0 10px rgba(255,210,89,.05),
+        0 0 46px rgba(255,210,89,.18);
+      position:relative;
+    }
+    .orb::before{
+      content:"";
+      position:absolute;
+      inset:-16px;
+      border-radius:50%;
+      border:1px dashed rgba(255,212,106,.18);
+      animation:spin 18s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .orb .big{font-size:1.5rem; font-weight:900; color:var(--gold)}
+    .orb .sub{font-size:.88rem; color:#d7ceb9; margin-top:6px}
+
+    .icon-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+    .icon-pill{
+      border-radius:18px;
+      border:1px solid rgba(255,212,106,.16);
+      background:rgba(255,255,255,.03);
+      padding:10px 8px;
+      text-align:center;
+      min-height:74px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+    }
+    .icon-circle{
+      width:36px; height:36px; border-radius:50%;
+      display:grid; place-items:center;
+      background:rgba(255,213,108,.08);
+      border:1px solid rgba(255,212,106,.22);
+      color:var(--gold);
+      font-size:1.15rem;
+    }
+    .icon-label{font-size:.82rem; color:#e6dcc7; font-weight:700}
+
+    .glass-card{
+      border:1px solid rgba(255,214,108,.14);
+      background:linear-gradient(180deg, rgba(29,37,55,.58), rgba(13,18,29,.72));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+
+    .phone-card{
+      padding:16px;
+      margin-top:16px;
+    }
+
+    .prayer-name{font-size:1.55rem; font-weight:900; color:#fff7e2}
+    .prayer-sub{color:#e1c15d; margin-top:8px}
+    .bar{
+      height:10px; border-radius:999px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden; margin-top:14px;
+    }
+    .bar span{
+      display:block; height:100%; width:68%;
+      background:linear-gradient(90deg, #8f6a16, #f1c655);
+      border-radius:inherit;
+      box-shadow:0 0 18px rgba(241,198,85,.5);
+    }
+
+    .tasbih-wrap{
+      display:grid;
+      place-items:center;
+      margin-top:14px;
+      min-height:286px;
+      position:relative;
+    }
+    .tasbih-ring, .tasbih-ring::before, .tasbih-ring::after{
+      position:absolute;
+      border-radius:50%;
+      inset:auto;
+    }
+    .tasbih-ring{
+      width:190px; height:190px;
+      border:1px solid rgba(255,210,91,.22);
+      box-shadow:0 0 35px rgba(255,206,87,.11);
+    }
+    .tasbih-ring::before{
+      content:"";
+      inset:18px;
+      border:1px dashed rgba(255,214,108,.2);
+      animation:spin 20s linear infinite reverse;
+    }
+    .tasbih-ring::after{
+      content:"";
+      inset:-16px;
+      border:1px solid rgba(255,255,255,.05);
+    }
+
+    .dots{
+      position:absolute;
+      width:190px; height:190px;
+      animation:spin 24s linear infinite;
+    }
+    .dots span{
+      position:absolute;
+      width:10px; height:10px; border-radius:50%;
+      background:#fffaf0;
+      box-shadow:0 0 8px rgba(255,255,255,.35);
+    }
+    .dots span.gold{background:#e2b63e; box-shadow:0 0 14px rgba(241,198,85,.62)}
+    .dots span.hot{background:#ff7f3e; box-shadow:0 0 15px rgba(255,128,62,.7)}
+
+    .counter{
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
+    .counter .num{
+      font-size:3.2rem;
+      font-weight:900;
+      color:#fff4cf;
+      text-shadow:0 0 20px rgba(241,198,85,.35);
+    }
+    .counter .word{color:#dbd0bd; font-weight:700; margin-top:6px}
+
+    .names-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .name-tile{
+      min-height:114px;
+      padding:14px 12px;
+      border-radius:22px;
+      border:1px solid rgba(255,215,110,.14);
+      background:linear-gradient(180deg, rgba(18,25,39,.74), rgba(9,13,22,.94));
+      box-shadow:inset 0 0 28px rgba(255,203,88,.06);
+    }
+    .name-tile b{
+      display:block;
+      font-size:1.5rem;
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+    .name-tile span{
+      color:#ddd3bf;
+      font-size:.82rem;
+      line-height:1.7;
+    }
+
+    .section-title{
+      text-align:center;
+      margin:0 0 22px;
+      font-size:clamp(1.7rem, 3vw, 2.9rem);
+      font-weight:900;
+      color:#fff7e1;
+    }
+
+    .section-sub{
+      max-width:760px;
+      margin:0 auto 26px;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:1.06rem;
+    }
+
+    .features{
+      padding:26px;
+    }
+
+    .features-grid,
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      padding:22px;
+      min-height:216px;
+      border-radius:28px;
+      border:1px solid rgba(255,214,108,.14);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(255,215,110,.13), transparent 18%),
+        linear-gradient(180deg, rgba(18,25,39,.72), rgba(8,13,22,.92));
+      box-shadow:var(--shadow);
+      transform-style:preserve-3d;
+      transition:.35s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-6px) rotateX(4deg) rotateY(-4deg);
+      border-color:rgba(255,214,108,.3);
+      box-shadow:0 24px 60px rgba(0,0,0,.34), 0 0 0 1px rgba(255,214,108,.08), inset 0 0 46px rgba(255,214,108,.05);
+    }
+
+    .card-icon{
+      width:72px; height:72px; border-radius:50%;
+      display:grid; place-items:center;
+      background:radial-gradient(circle, rgba(255,216,112,.16), rgba(255,216,112,.05));
+      border:1px solid rgba(255,214,108,.24);
+      color:var(--gold);
+      font-size:2rem;
+      margin-bottom:18px;
+      box-shadow:0 0 32px rgba(255,214,108,.08);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.35rem;
+      color:#fff3d2;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.95;
+      font-size:1rem;
+    }
+
+    .steps{padding:12px 0 4px}
+    .steps-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .step{
+      padding:24px;
+      min-height:185px;
+      position:relative;
+    }
+    .step-num{
+      position:absolute;
+      top:18px; left:18px;
+      width:38px; height:38px;
+      border-radius:50%;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, #d9a932, #7e5d12);
+      color:#1f1606; font-weight:900;
+      box-shadow:0 0 18px rgba(241,198,85,.3);
+    }
+
+    .why{padding-top:12px}
+    .why .card{min-height:190px}
+
+    .cta{
+      padding:28px;
+      overflow:hidden;
+      position:relative;
+    }
+    .cta::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,216,112,.15), transparent 18%),
+        linear-gradient(180deg, rgba(255,198,84,.10), transparent 40%),
+        linear-gradient(180deg, rgba(7,11,20,.05), rgba(7,11,20,.2));
+      pointer-events:none;
+    }
+    .cta h2{
+      margin:0 0 10px;
+      font-size:clamp(2rem, 4vw, 3.6rem);
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
+    .cta p{
+      margin:0 auto 20px;
+      max-width:760px;
+      text-align:center;
+      color:#ded4be;
+      line-height:1.95;
+      position:relative;
+      z-index:1;
+    }
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .footer{
+      margin-top:20px;
+      padding:28px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:24px;
+    }
+    .footer h4{margin:0 0 14px; color:#f4d173}
+    .footer a, .footer p{
+      color:#d3cab7;
+      text-decoration:none;
+      line-height:2;
+      margin:0;
+    }
+    .footer .brand{
+      margin-bottom:8px;
+      display:inline-block;
+    }
+    .copyright{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,214,108,.12);
+      color:#998f7e;
+      text-align:center;
+    }
+
+    .badge-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .badge{
+      min-height:40px;
+      padding:0 14px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,214,108,.18);
+      background:rgba(255,214,108,.05);
+      color:#eedb9a;
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:.8s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 1100px){
+      .hero{grid-template-columns:1fr; padding:24px}
+      .hero-copy{text-align:center}
+      .hero-copy p{margin-inline:auto}
+      .hero-actions, .compat, .badge-row{justify-content:center}
+      .hero-art{min-height:640px}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width: 840px){
+      .features-grid, .steps-grid, .why-grid{grid-template-columns:1fr}
+      .hero-art{min-height:700px}
+      .phone.small-left{transform:translate(-90px, 60px) rotateY(16deg) rotateZ(-5deg) scale(.83)}
+      .phone.center{transform:translate(0, 10px) scale(.96)}
+      .phone.right{transform:translate(95px, 64px) rotateY(-14deg) rotateZ(4deg) scale(.84)}
+      .footer-grid{grid-template-columns:1fr}
+      header.nav-wrap{position:static}
+    }
+
+    @media (max-width: 560px){
+      .container{width:min(var(--max), calc(100% - 18px))}
+      .hero{padding:18px}
+      .features{padding:18px}
+      .cta,.footer{padding:18px}
+      h1{font-size:2.3rem}
+      .menu{gap:10px 14px}
+      .btn{width:100%}
+      .hero-actions{flex-direction:column}
+      .phone{width:220px; height:470px}
+      .phone.small-left{transform:translate(-55px, 70px) rotateY(12deg) rotateZ(-4deg) scale(.78)}
+      .phone.center{transform:translate(0, 4px) scale(.9)}
+      .phone.right{transform:translate(58px, 70px) rotateY(-12deg) rotateZ(4deg) scale(.78)}
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <header class="nav-wrap shell reveal">
+      <nav class="nav">
+        <div class="brand">ذكرني</div>
+        <div class="menu">
+          <a href="#features">المزايا</a>
+          <a href="#about">عن التطبيق</a>
+          <a href="#steps">الخطوات</a>
+          <a href="#download">التحميل</a>
+          <a href="#contact">تواصل</a>
+        </div>
+        <a class="btn gold" href="#download">ابدأ الآن ✦</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <div class="hero shell reveal">
+        <div class="hero-copy">
+          <div class="eyebrow">✦ تجربة روحانية فاخرة بتصميم عصري</div>
+          <h1>ذكرني...<br>رفيقك اليومي للذكر والقرآن والمواقيت</h1>
+          <p>
+            صفحة هبوط احترافية لتطبيق <strong>ذكرني</strong> بروح بصرية راقية،
+            تعرض مزايا التطبيق بشكل حيّ عبر بطاقات زجاجية متوهجة وعناصر واجهة
+            مستوحاة من عالم التطبيق نفسه، لتمنح الزائر انطباعًا قويًا من أول لحظة.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn gold" href="YOUR_ANDROID_LINK_HERE">⬇ حمّل للأندرويد</a>
+            <a class="btn ghost" href="YOUR_IOS_LINK_HERE"> حمّل للآيفون</a>
+          </div>
+
+          <div class="compat">
+            <span>متوافق مع Android</span>
+            <span>ومتوافق مع iPhone</span>
+            <span>ويمكن ربطه بمتجر التطبيق لاحقًا</span>
+          </div>
+
+          <div class="badge-row">
+            <div class="badge">الأذكار اليومية</div>
+            <div class="badge">القرآن الكريم</div>
+            <div class="badge">مواقيت الصلاة</div>
+            <div class="badge">الأسماء الحسنى</div>
+            <div class="badge">التسبيح الذكي</div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="aura"></div>
+          <div class="phone-stack">
+            <article class="phone small-left">
+              <div class="status"></div>
+              <div class="screen">
+                <div class="mini-head">
+                  <div class="mini-title">التسبيح</div>
+                  <div class="mini-ico">✦</div>
+                </div>
+                <div class="tasbih-wrap">
+                  <div class="tasbih-ring"></div>
+                  <div class="dots" id="dots1"></div>
+                  <div class="counter">
+                    <div class="num" data-count="118">0</div>
+                    <div class="word">تسبيحة</div>
+                  </div>
+                </div>
+                <div class="phone-card glass-card">
+                  <div class="prayer-name" style="font-size:1.35rem">سُبحان الله</div>
+                  <div class="prayer-sub">ابدأ الآن بنية صادقة ✨</div>
+                  <div class="bar"><span style="width:82%"></span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phone center">
+              <div class="status"></div>
+              <div class="screen">
+                <div class="mini-head">
+                  <div class="mini-title">ذكرني</div>
+                  <div class="mini-ico">☰</div>
+                </div>
+
+                <div class="orb">
+                  <div>
+                    <div class="big">القرآن الكريم</div>
+                    <div class="sub">المصحف</div>
+                  </div>
+                </div>
+
+                <div class="icon-grid">
+                  <div class="icon-pill"><div class="icon-circle">🕌</div><div class="icon-label">مواقيت الصلاة</div></div>
+                  <div class="icon-pill"><div class="icon-circle">🕋</div><div class="icon-label">الأذكار</div></div>
+                  <div class="icon-pill"><div class="icon-circle">⟲</div><div class="icon-label">التسبيح</div></div>
+                  <div class="icon-pill"><div class="icon-circle">☾</div><div class="icon-label">المساء</div></div>
+                  <div class="icon-pill"><div class="icon-circle">☀</div><div class="icon-label">الصباح</div></div>
+                  <div class="icon-pill"><div class="icon-circle">✦</div><div class="icon-label">سيرة</div></div>
+                </div>
+
+                <div class="phone-card glass-card">
+                  <div style="color:#d5cdb7;font-weight:700">المواقيت القادمة</div>
+                  <div class="prayer-name">الظهر</div>
+                  <div class="prayer-sub">الظهر بعد 2 س و 27 د</div>
+                  <div class="bar"><span></span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phone right">
+              <div class="status"></div>
+              <div class="screen">
+                <div class="mini-head">
+                  <div class="mini-title">أسماء الله الحسنى</div>
+                  <div class="mini-ico">›</div>
+                </div>
+                <div class="names-grid">
+                  <div class="name-tile"><b>الله</b><span>الاسم الأعظم الجامع لكل صفات الكمال.</span></div>
+                  <div class="name-tile"><b>الرحمن</b><span>ذو الرحمة الواسعة التي شملت الخلق جميعًا.</span></div>
+                  <div class="name-tile"><b>الملك</b><span>مالك الملك والمتصرف في خلقه بحكمته.</span></div>
+                  <div class="name-tile"><b>السلام</b><span>السالم من كل نقص والمفيض للأمان.</span></div>
+                  <div class="name-tile"><b>المؤمن</b><span>الذي يمنح الطمأنينة لعباده ويؤمنهم.</span></div>
+                  <div class="name-tile"><b>المهيمن</b><span>الرقيب الحافظ الشهيد على كل شيء.</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="features shell reveal">
+        <h2 class="section-title">عن التطبيق</h2>
+        <p class="section-sub">
+          صُممت هذه الصفحة لتعكس شخصية تطبيق ذكرني: هدوء، عمق، فخامة،
+          وسهولة في الوصول إلى الذكر والقرآن والمواقيت اليومية من خلال واجهة
+          حديثة قابلة للعرض على الهاتف والكمبيوتر.
+        </p>
+
+        <div class="features-grid">
+          <article class="card">
+            <div class="card-icon">🕌</div>
+            <h3>مواقيت الصلاة</h3>
+            <p>عرض بصري أنيق للمواقيت القادمة، عدّاد زمني واضح، ومؤشرات يومية تساعد المستخدم على متابعة وقته الروحي بسهولة.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📿</div>
+            <h3>الأذكار اليومية</h3>
+            <p>بطاقات غنية ومنظمة لأذكار الصباح والمساء وما بعد الصلاة، مع تجربة قراءة مريحة وسريعة ومتوازنة.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📖</div>
+            <h3>القرآن الكريم</h3>
+            <p>مدخل مرئي فاخر للمصحف والورد اليومي، بتقديم هادئ ينسجم مع الهوية العامة للتطبيق ويزيد الارتباط به.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⟲</div>
+            <h3>التسبيح الذكي</h3>
+            <p>عداد تفاعلي بإضاءة ذهبية، حلقات بصرية ونتائج تحفيزية تمنح المستخدم شعورًا بالإنجاز والاستمرار.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">الله</div>
+            <h3>الأسماء الحسنى</h3>
+            <p>شبكة بطاقات راقية تعرض الأسماء الحسنى بشكل واضح ومهيب مع وصف قصير يساعد على التدبر والتأمل.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>رحلة روحانية</h3>
+            <p>مستويات، تقدم يومي، وإنجازات ملهمة تخلق تجربة شخصية حيّة تجعل التطبيق رفيقًا يوميًا حقيقيًا.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps" id="steps">
+      <h2 class="section-title reveal">خطوات رحلتك الإيمانية</h2>
+      <div class="steps-grid">
+        <article class="card step reveal">
+          <div class="step-num">1</div>
+          <div class="card-icon">✓</div>
+          <h3>اختر وردك</h3>
+          <p>حدّد الأذكار أو السور أو التنبيهات التي تريد إبرازها في التطبيق لتبدأ يومك بما يناسبك.</p>
+        </article>
+
+        <article class="card step reveal">
+          <div class="step-num">2</div>
+          <div class="card-icon">▥</div>
+          <h3>تابع تقدمك</h3>
+          <p>اعرض إنجازك اليومي، مستوى الالتزام، ومؤشرات الاستخدام في بطاقات جميلة وواضحة.</p>
+        </article>
+
+        <article class="card step reveal">
+          <div class="step-num">3</div>
+          <div class="card-icon">🏅</div>
+          <h3>ارتقِ بمستواك</h3>
+          <p>كل تفاعل يقربك أكثر من تجربة أعمق، ويمنحك شعورًا دائمًا بالنمو الروحي والاستمرارية.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section why" id="about">
+      <h2 class="section-title reveal">لماذا ذكرني؟</h2>
+      <div class="why-grid">
+        <article class="card reveal">
+          <div class="card-icon">✧</div>
+          <h3>تصميم ملهم</h3>
+          <p>أجواء ليلية، بريق ذهبي، زجاجية راقية، وعناصر متحركة تضيف عمقًا بصريًا يليق بتطبيق روحاني فاخر.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">☞</div>
+          <h3>سهولة الاستخدام</h3>
+          <p>الواجهة مرتبة، واضحة، وقابلة للتعديل بسرعة، لتخدم المستخدم مباشرة بدون تعقيد في التنقل أو العرض.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">⌘</div>
+          <h3>تجربة واحدة على كل الأجهزة</h3>
+          <p>الصفحة متجاوبة بالكامل وتعمل على الجوال والتابلت والكمبيوتر، مع زرّين مخصصين للأندرويد والآيفون.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="cta shell reveal">
+        <h2>ابدأ رحلتك الإيمانية الآن</h2>
+        <p>
+          ارفع هذه الصفحة مجانًا خلال دقائق، ثم استبدل روابط التحميل بروابط تطبيقك
+          الحقيقية. ويمكنك أيضًا ربطها بمتجر Google Play أو TestFlight أو App Store لاحقًا.
+        </p>
+        <div class="cta-actions">
+          <a class="btn gold" href="YOUR_ANDROID_LINK_HERE">⬇ حمّل للأندرويد</a>
+          <a class="btn ghost" href="YOUR_IOS_LINK_HERE"> حمّل للآيفون</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer shell reveal" id="contact">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">ذكرني</div>
+          <p>رفيقك اليومي للذكر والقرآن والمواقيت بتجربة بصرية ملهمة تناسب الهوية التي تريدها لتطبيقك.</p>
+        </div>
+        <div>
+          <h4>التطبيق</h4>
+          <a href="#features">المزايا</a><br>
+          <a href="#about">عن التطبيق</a><br>
+          <a href="#download">التحميل</a><br>
+          <a href="#steps">الخطوات</a>
+        </div>
+        <div>
+          <h4>الروابط</h4>
+          <a href="YOUR_ANDROID_LINK_HERE">تحميل أندرويد</a><br>
+          <a href="YOUR_IOS_LINK_HERE">تحميل آيفون</a><br>
+          <a href="mailto:you@example.com">البريد الإلكتروني</a><br>
+          <a href="#">سياسة الخصوصية</a>
+        </div>
+        <div>
+          <h4>ملاحظات</h4>
+          <p>استبدل روابط التحميل:</p>
+          <p><strong>YOUR_ANDROID_LINK_HERE</strong></p>
+          <p><strong>YOUR_IOS_LINK_HERE</strong></p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 ذكرني — صفحة هبوط جاهزة للتعديل والرفع.</div>
+    </footer>
+  </div>
+
+  <script>
+    const stars = document.getElementById('stars');
+    const totalStars = window.innerWidth < 700 ? 70 : 130;
+    for(let i=0;i<totalStars;i++){
+      const s = document.createElement('span');
+      s.className = 'star';
+      s.style.left = Math.random()*100 + 'vw';
+      s.style.top = Math.random()*100 + 'vh';
+      s.style.opacity = (Math.random()*.75 + .18).toFixed(2);
+      s.style.transform = `scale(${(Math.random()*1.8 + .4).toFixed(2)})`;
+      s.style.setProperty('--d', (Math.random()*7 + 4).toFixed(2) + 's');
+      stars.appendChild(s);
+    }
+
+    for(let i=0;i<5;i++){
+      const m = document.createElement('span');
+      m.className = 'meteor';
+      m.style.top = (Math.random()*55 + 4) + 'vh';
+      m.style.left = (-20 - Math.random()*30) + 'vw';
+      m.style.animationDelay = (Math.random()*12).toFixed(2) + 's';
+      m.style.setProperty('--md', (Math.random()*6 + 10).toFixed(2) + 's');
+      stars.appendChild(m);
+    }
+
+    function buildDots(elId, n=28){
+      const box = document.getElementById(elId);
+      if(!box) return;
+      const r = 82;
+      for(let i=0;i<n;i++){
+        const dot = document.createElement('span');
+        const a = (i / n) * Math.PI * 2;
+        const x = 95 + Math.cos(a)*r;
+        const y = 95 + Math.sin(a)*r;
+        dot.style.left = `calc(${x}px - 5px)`;
+        dot.style.top = `calc(${y}px - 5px)`;
+        if(i % 7 === 0) dot.classList.add('gold');
+        if(i % 11 === 0) dot.classList.add('hot');
+        box.appendChild(dot);
+      }
+    }
+    buildDots('dots1', 32);
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.16});
+    revealEls.forEach(el=>io.observe(el));
+
+    const counters = document.querySelectorAll('[data-count]');
+    const cio = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const el = entry.target;
+        const max = +el.dataset.count;
+        let current = 0;
+        const step = Math.max(1, Math.floor(max / 45));
+        const timer = setInterval(()=>{
+          current += step;
+          if(current >= max){
+            current = max;
+            clearInterval(timer);
+          }
+          el.textContent = current;
+        }, 24);
+        cio.unobserve(el);
+      });
+    }, {threshold:.45});
+    counters.forEach(el=>cio.observe(el));
+
+    const phones = document.querySelectorAll('.phone');
+    document.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / innerWidth - .5) * 10;
+      const y = (e.clientY / innerHeight - .5) * 8;
+      phones.forEach((phone, i)=>{
+        const depth = i === 1 ? 1 : .6;
+        phone.style.transition = 'transform .18s ease-out';
+        if(phone.classList.contains('center')){
+          phone.style.transform = `translate(0,0) rotateX(${(-y*0.28).toFixed(2)}deg) rotateY(${(x*0.35).toFixed(2)}deg) scale(1.05)`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
