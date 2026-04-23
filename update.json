@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.0.1",
-  "version_code": 2,
+  "latest_version": "1.0.2",
+  "version_code": 3,
   "apk_url": "https://github.com/alkubise/thakarni/releases/download/v1.0.1/app-release.apk",
-  "message": "تحسينات في الإنجازات والمسبحة والثبات العام، مع تحسين عرض القرآن الكريم وأذكار أوقات الصلاة.",
+  "message": "تم تفعيل نظام التحديثات الذكي بنجاح! نعتذر عن التأخير.",
   "force_update": false
 }
