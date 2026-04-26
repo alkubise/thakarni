@@ -3,5 +3,5 @@
   "version_code": 5,
   "apk_url": "https://github.com/alkubise/thakarni/releases/download/v1.0.4/app-release.apk",
   "message": "- إضافة ميزة اختيار المؤذن\n- عرض الموقع الحقيقي تلقائياً\n- تحسينات شاملة في نظام الأذان والإشعارات",
-  "force_update": true
+  "force_update": false
 }
