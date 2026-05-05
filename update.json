@@ -7,5 +7,5 @@
     "armeabi-v7a": "https://github.com/alkubise/thakarni/releases/download/v2.0.0/app-armeabi-v7a-release.apk"
   },
   "message": "- إضافة ودجات جديدة لعرض المعلومات المهمة بسرعة\n- تقليص حجم التطبيق وتحسين ملفات الإصدار\n- إضافة محراب المعرفة بتصميم روحاني منظم\n- تحسين النافذة الذكية وتفعيل خيارات التكرار المناسبة",
-  "force_update": false
+  "force_update": true
 }
