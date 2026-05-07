@@ -1,11 +1,11 @@
 {
-  "latest_version": "2.0.0",
-  "version_code": 7,
-  "apk_url": "https://github.com/alkubise/thakarni/releases/download/v2.0.0/app-arm64-v8a-release.apk",
+  "latest_version": "2.1.0",
+  "version_code": 2010,
+  "apk_url": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-arm64-v8a-release.apk",
   "apk_urls": {
-    "arm64-v8a": "https://github.com/alkubise/thakarni/releases/download/v2.0.0/app-arm64-v8a-release.apk",
-    "armeabi-v7a": "https://github.com/alkubise/thakarni/releases/download/v2.0.0/app-armeabi-v7a-release.apk"
+    "arm64-v8a": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-arm64-v8a-release.apk",
+    "armeabi-v7a": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-armeabi-v7a-release.apk"
   },
-  "message": "- إضافة ودجات جديدة لعرض المعلومات المهمة بسرعة\n- تقليص حجم التطبيق وتحسين ملفات الإصدار\n- إضافة محراب المعرفة بتصميم روحاني منظم\n- تحسين النافذة الذكية وتفعيل خيارات التكرار المناسبة",
+  "message": "- إضافة ميزة المرشد الروحي الذكي (Spiritual Guide) لنصائح إيمانية مخصصة\n- تحديث وتطوير واجهة أسماء الله الحسنى بتصميم جديد كلياً\n- إضافة ودجات جديدة لعرض المعلومات المهمة بسرعة على الشاشة الرئيسية\n- تحسين تحديث ودجت الصلاة والانتقال التلقائي للصلاة التالية\n- تقليص حجم التطبيق بشكل كبير وتحسين ملفات الإصدار\n- تحسين اختيار المؤذن ونظام الأذان والتنبيهات\n- تحسين النافذة الذكية (Overlay) وتفعيل خيارات التكرار المناسبة\n- إصلاحات عامة لزيادة الاستقرار وتحسين تجربة الاستخدام",
   "force_update": true
 }
