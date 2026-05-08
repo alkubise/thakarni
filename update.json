@@ -1,11 +1,11 @@
 {
-  "latest_version": "2.1.0",
-  "version_code": 2010,
-  "apk_url": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-arm64-v8a-release.apk",
+  "latest_version": "2.1.1",
+  "version_code": 2011,
+  "apk_url": "https://github.com/alkubise/thakarni/releases/download/v2.1.1/app-arm64-v8a-release.apk",
   "apk_urls": {
-    "arm64-v8a": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-arm64-v8a-release.apk",
-    "armeabi-v7a": "https://github.com/alkubise/thakarni/releases/download/v2.1.0/app-armeabi-v7a-release.apk"
+    "arm64-v8a": "https://github.com/alkubise/thakarni/releases/download/v2.1.1/app-arm64-v8a-release.apk",
+    "armeabi-v7a": "https://github.com/alkubise/thakarni/releases/download/v2.1.1/app-armeabi-v7a-release.apk"
   },
-  "message": "- إضافة ميزة المرشد الروحي الذكي (Spiritual Guide) لنصائح إيمانية مخصصة\n- تحديث وتطوير واجهة أسماء الله الحسنى بتصميم جديد كلياً\n- إضافة ودجات جديدة لعرض المعلومات المهمة بسرعة على الشاشة الرئيسية\n- تحسين تحديث ودجت الصلاة والانتقال التلقائي للصلاة التالية\n- تقليص حجم التطبيق بشكل كبير وتحسين ملفات الإصدار\n- تحسين اختيار المؤذن ونظام الأذان والتنبيهات\n- تحسين النافذة الذكية (Overlay) وتفعيل خيارات التكرار المناسبة\n- إصلاحات عامة لزيادة الاستقرار وتحسين تجربة الاستخدام",
+  "message": "- إصلاح مشكلة توقف الأذان بعد اليوم التالي\n- تحسين جدولة أوقات الصلاة لمدة 14 يوماً بشكل احتياطي\n- تحسين عمل الأذان في الخلفية ووضع الخمول\n- تحسين التحديث اليومي لمواقيت الصلاة",
   "force_update": true
 }
